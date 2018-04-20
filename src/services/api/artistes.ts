@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Artiste } from '../../classes/artistes';
 
 @Injectable()
 export class ArtisteService {
@@ -9,8 +10,8 @@ export class ArtisteService {
   constructor(private http: HttpClient) {}
 
 
-  public getArtistes(): Observable<Response> {
-    return this.http.get(this.url + '/artistes');
+  public getArtistes(): Observable<Artiste> {
+    return this.http.get<Artiste>(this.url + '/artistes');
   }
 
 }

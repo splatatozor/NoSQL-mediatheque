@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Album } from '../../classes/albums';
 
@@ -7,7 +7,7 @@ import { Album } from '../../classes/albums';
 export class AlbumService {
 
   private readonly url = 'http://localhost:3000';
-  constructor(private http: HttpClient, private album: Album) {}
+  constructor(private http: HttpClient) {}
 
 
   public getAlbums(): Observable<Album> {

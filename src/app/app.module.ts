@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AlbumCardComponent } from './album-card/album-card.component';
 import { ArtisteCardComponent } from './artiste-card/artiste-card.component';
 import { Album } from '../classes/albums';
+import { Artiste } from '../classes/artistes';
 import { AlbumService } from '../services/api/albums';
 import { ArtisteService } from '../services/api/artistes';
 
@@ -23,7 +24,7 @@ import { ArtisteService } from '../services/api/artistes';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [Album, AlbumService, ArtisteService],
+  providers: [Album, AlbumService, ArtisteService, Artiste],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

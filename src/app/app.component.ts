@@ -13,7 +13,7 @@ export class AppComponent {
   public artistes: any;
   private artistesBak: any
   protected searchValue: string;
-  protected displayAlbums: Boolean = true
+  protected displayAlbums: Number = 1
 
   constructor(public albumService: AlbumService, public artisteService: ArtisteService) {
     this.getAlbums();
@@ -24,7 +24,6 @@ export class AppComponent {
     for (const i in this.albums) {
       if (this.albums[i].alb_nom.toLowerCase() === value.toLowerCase() || this.albums[i].art_nom.toLowerCase() === value.toLowerCase()) {
         const album = this.albums[i]
-        console.log(album)
         this.albums = []
         this.albums.push(album)
         return;
@@ -51,7 +50,7 @@ export class AppComponent {
     this.artisteService.getArtistes().subscribe(res => {
       this.artistes = res;
       this.artistesBak = res;
-      console.log(this.artistes)
+      console.log(this.artistes);
     });
   }
 
@@ -81,7 +80,7 @@ export class AppComponent {
     this.albums = byName;
   }
 
-  protected toggleCards() {
-    this.displayAlbums = !this.displayAlbums;
+  protected toggleCards(val) {
+    this.displayAlbums = val;
   }
 }

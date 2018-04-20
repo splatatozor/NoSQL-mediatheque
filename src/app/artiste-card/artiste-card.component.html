@@ -1,13 +1,14 @@
 <div class="card-group item" *ngFor="let artiste of artistes">
   <div class="card">
-    <!--<img class="card-img-top" src="../../assets/artistes/{{artiste.art_picture}}.jpg" alt="Card image cap">-->
+    <img class="card-img-top" src="../../assets/artistes/{{artiste.art_picture}}.jpg" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">{{artiste}}</h5>
+      <h5 class="card-title">{{artiste.art_nom}}</h5>
       <div class="card-container-artiste">
         <div class="card-container-artiste-text">
-        <!--<span class="card-text"><small class="text-muted">{{artiste.gen_libelle}} - {{convertLabelToString(artiste.art_typ)}}</small></span><br>-->
-          <!--<span class="card-text"><small class="text-muted"></small>{{artiste.pay_libelle}}</span>-->
-        <!--</div>-->
+        <span class="card-text"><small>{{artiste.art_description}}</small></span><br>
+        <span class="card-text"><small class="text-muted">{{artiste.gen_libelle}} - {{convertLabelToString(artiste.art_typ)}}</small></span><br>
+          <span class="card-text"><small class="text-muted"></small>{{artiste.pay_libelle}}</span>
+        </div>
       </div>
     </div>
   </div>

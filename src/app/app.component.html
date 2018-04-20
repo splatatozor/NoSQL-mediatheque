@@ -7,14 +7,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active" (click)="toggleCards()">
-          <span class="nav-link">Albums</span>
+        <li class="nav-item" (click)="toggleCards(1)">
+          <span class="nav-link" [ngClass]="{'active': displayAlbums == 1}">Albums</span>
         </li>
-        <li class="nav-item" (click)="toggleCards()">
-          <a class="nav-link">Artiste</a>
+        <li class="nav-item" (click)="toggleCards(2)">
+          <a class="nav-link" [ngClass]="{'active': displayAlbums == 2}">Artiste</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0" *ngIf="displayAlbums == 1">
         <input
           class="form-control mr-sm-2"
           type="search"
@@ -25,10 +25,16 @@
           (ngModelChange)="valueChange($event)">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
       </form>
+      <form class="form-inline my-2 my-lg-0" *ngIf="displayAlbums == 2">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Coming Soon Bitch">
+      </form>
     </div>
   </nav>
 
-  <nav aria-label="breadcrumb">
+  <nav aria-label="breadcrumb" *ngIf="displayAlbums == 1">
     <ol class="breadcrumb Breadcrumb">
       <div class="btn-group" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-secondary" (click)="filterAlbumsByPrice()">Price</button>
@@ -37,9 +43,16 @@
       </div>
     </ol>
   </nav>
+  <nav aria-label="breadcrumb" *ngIf="displayAlbums == 2">
+    <ol class="breadcrumb Breadcrumb">
+      Coming Soon Bitch
+    </ol>
+  </nav>
 </div>
 
+
+
 <div class="masonry">
-  <app-album-card *ngIf="displayAlbums" [albums]="albums"></app-album-card>
-  <app-artiste-card *ngIf="!displayAlbums" [artistes]="artistes"></app-artiste-card>
+  <app-album-card *ngIf="displayAlbums == 1" [albums]="albums"></app-album-card>
+  <app-artiste-card *ngIf="displayAlbums == 2" [artistes]="artistes"></app-artiste-card>
 </div>
