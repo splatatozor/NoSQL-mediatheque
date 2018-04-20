@@ -1,0 +1,16 @@
+<div class="card-group item" *ngFor="let album of albums">
+  <div class="card">
+    <img class="card-img-top" src="../../assets/covers/{{album.alb_picture}}.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{album.alb_nom}}</h5>
+      <span class="card-text">{{album.alb_annee}}</span>
+      <div class="card-container-artiste">
+        <div class="card-container-artiste-text">
+          <span class="card-text"><small class="text-muted">{{album.art_nom}} - {{convertLabelToString(album.art_typ)}}</small></span><br>
+          <span class="card-text"><small class="text-muted"></small>{{album.gen_libelle}} - {{album.alb_prix}} €</span>
+        </div>
+        <img class="card-img" src="../../assets/artistes/{{album.art_picture}}.jpg" />
+      </div>
+    </div>
+  </div>
+</div>
